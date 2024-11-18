@@ -1,0 +1,37 @@
+# # "org" ensures this Service is used with the correct Serverless Framework Access Key.
+# org: coconamatata
+# # "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+# app: test
+# # "service" is the name of this project. This will also be added to your AWS resource names.
+# service: videoService
+
+# plugins:
+#     - serverless-offline
+
+# provider:
+#     name: aws
+#     runtime: nodejs20.x
+
+# functions:
+#     api:
+#         handler: handler.handler
+#         events:
+#             - httpApi: '*'
+
+org: coconamatata
+app: test
+service: videoService
+
+plugins:
+    - serverless-offline
+
+provider:
+    name: aws
+    runtime: nodejs20.x
+    region: ap-northeast-2
+
+functions:
+    api:
+        handler: handler.handler
+        events:
+            - httpApi: '*'
