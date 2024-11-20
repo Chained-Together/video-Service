@@ -8,6 +8,7 @@ const upload = multer({
         s3: s3,
         bucket: process.env.S3_BUCKET_NAME,
         contentType: multerS3.AUTO_CONTENT_TYPE,
+        acl: 'public-read',
         metadata: (req, file, cb) => {
             cb(null, { fieldName: file.fieldname });
         },
@@ -21,7 +22,7 @@ const upload = multer({
         if (file.mimetype.startsWith('video/')) {
             cb(null, true);
         } else {
-            cb(new Error('Invalid file type. Only video files are allowed.'));
+            cb(new Error('비디오 타입만 허용됩니다.'));
         }
     },
 });

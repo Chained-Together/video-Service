@@ -3,6 +3,9 @@ const upload = require('./upload-config');
 
 const app = express();
 
+app.use(bodyParser.json({ limit: '100mb' }));
+app.use(bodyParser.urlencoded({ limit: '100mb', extended: true }));
+
 app.post('/upload', upload.single('file'), (req, res) => {
     try {
         const fileUrl = req.file.location;
@@ -13,4 +16,7 @@ app.post('/upload', upload.single('file'), (req, res) => {
     }
 });
 
-app.listen(3999);
+app.listen(3999, () => {
+    console.log('서버가 실행되고있습니다. http://localhost:3999');
+});
+//배포시   app.listen 지우고  exports.handler = serverless(app);
