@@ -19,4 +19,3 @@ app.post('/upload', upload.single('file'), (req, res) => {
 app.listen(3999, () => {
     console.log('서버가 실행되고있습니다. http://localhost:3999');
 });
-//배포시   app.listen 지우고  exports.handler = serverless(app);
